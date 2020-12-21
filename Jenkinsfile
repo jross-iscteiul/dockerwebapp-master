@@ -1,6 +1,5 @@
 node {
 
-    checkout main
 	
     docker.withRegistry('https://registry.hub.docker.com', 'dockerHub') {
 
