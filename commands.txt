@@ -1,10 +1,10 @@
-docker build -t miltonc/dockerwebapp .
+docker build -t sksuricata/main .
 
 docker images
 
-docker run -p 49160:8080 miltonc/dockerwebapp
+docker run -p 49160:8080 sksuricata/main
 
-http://localhost:49160
+http://localhost:90
 
 
 Issue: Cannot run program - nohup
