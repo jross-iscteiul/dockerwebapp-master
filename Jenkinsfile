@@ -1,7 +1,7 @@
 node {
 
-    checkout scm
-
+    checkout main
+	
     docker.withRegistry('https://registry.hub.docker.com', 'dockerHub') {
 
         def customImage = docker.build("sksuricata/dockerwebapp")
