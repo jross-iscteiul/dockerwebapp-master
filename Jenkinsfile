@@ -34,6 +34,10 @@ pipeline{
 			steps{
 			
 			node any {
+			sh 'echo noanananana-info'
+
+			sh "kubectl config view"
+
 			sh "kubectl config --kubeconfig=/home/ec2-user/jenkins/config use-context dev-frontend"
 			sh "kubectl config view"
 			sh "kubectl create deployment --image=sksuricata/dockerwebapp:latest v0"
