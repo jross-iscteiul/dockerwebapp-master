@@ -32,7 +32,7 @@ pipeline{
 		
 		stage('Deploy to Kube'){
 			steps{
-			sh "kubectl config get-contexts"
+			sh "kubectl config view"
 			sh "kubectl create deployment --image=sksuricata/dockerwebapp:latest v0"
 			sh "kubectl set env deployment.apss/v0 DOMAIN=cluster"
 			sh "kubectl get pods"
