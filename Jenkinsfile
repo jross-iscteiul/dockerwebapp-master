@@ -26,6 +26,7 @@ pipeline{
 		}}
 		stage('Deploy to Docker'){
 			steps{
+			sh 'echo ola'
 			}
 		}
 		
