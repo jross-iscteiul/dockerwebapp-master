@@ -32,10 +32,9 @@ pipeline{
 		
 		stage('Deploy to Kube'){
 			steps{
-			sh 'cd /'
-			sh 'kubectl create deployment --image=sksuricata/dockerwebapp:latest v0'
-			sh 'kubectl set env deployment.apss/v0 DOMAIN=cluster'
-			sh 'kubectl get pods'
+			sh 'cd / & kubectl create deployment --image=sksuricata/dockerwebapp:latest v0'
+			sh 'cd / & kubectl set env deployment.apss/v0 DOMAIN=cluster'
+			sh 'cd / & kubectl get pods'
 			}
 		}
 		
