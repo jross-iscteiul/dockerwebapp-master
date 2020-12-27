@@ -26,13 +26,13 @@ pipeline{
 		}}
 		stage('Deploy to Docker'){
 			steps{
-			sh 'docker run -p 91:8080 sksuricata/dockerwebapp:v0'
+			sh 'docker run -p 91:8080 sksuricata/dockerwebapp:latest'
 			}
 		}
 		
 		stage('Deploy to Kube'){
 			steps{
-			sh 'kubectl create deployment --image=sksuricata/dockerwebapp:v0 v0'
+			sh 'kubectl create deployment --image=sksuricata/dockerwebapp:latest v0'
 			sh 'kubectl set env deployment.apss/v0 DOMAIN=cluster'
 			sh 'kubectl get pods'
 			}
