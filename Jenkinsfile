@@ -11,14 +11,19 @@ pipeline{
 	}
 		stage('Build image'){
 		steps{
-			sh 'docker build -t sksuricata/dockerwebapp:v0 .'
-			sh 'sudo docker push sksuricata/dockerwebapp:v0'
+		script{
 			
+		docker.withRegistry('https://registry.hub.docker.com', 'dockerHub') {
+
+		def customImage = docker.build("sksuricata/dockerwebapp")
+
+        /* Push the container to the custom Registry */
+        customImage.push()	
 			}
 			
 			
 		}
-		
+		}}
 		stage('Deploy to Docker'){
 			steps{
 			sh 'docker run -p 91:8080 sksuricata/dockerwebapp:v0'
