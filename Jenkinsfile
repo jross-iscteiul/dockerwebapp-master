@@ -35,6 +35,7 @@ pipeline{
 			
 			script {
 			sh 'sudo echo noanananana-info'
+			sh 'sudo cat ~/.kube/config'
 			sh 'sudo which kubectl'
 			sh 'sudo cat /home/ec2-user/jenkins/config'
 			sh "sudo kubectl config view"
