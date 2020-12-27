@@ -26,7 +26,7 @@ pipeline{
 		}}
 		stage('Deploy to Docker'){
 			steps{
-			sh 'docker run -p 91:8080 sksuricata/dockerwebapp:latest'
+			sh 'docker run --rm -d -p 91:8080 sksuricata/dockerwebapp:latest'
 			}
 		}
 		
