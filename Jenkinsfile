@@ -12,8 +12,7 @@ pipeline{
 		stage('Build image'){
 		steps{
 			sh 'docker build -t sksuricata/dockerwebapp:v0 .'
-			sh 'docker tag v0 {{sksuricata}}/{{sksuricata/dockerwebapp}}:{{v0}}'
-			sh 'docker push {{sksuricata}}/{{sksuricata/dockerwebapp}}:{{v0}}'
+			sh 'docker push sksuricata/dockerwebapp:v0'
 			
 			}
 			
