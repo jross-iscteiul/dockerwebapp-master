@@ -1,0 +1,33 @@
+2008-01-01 10:02:02
+2008-01-01 10:02:12
+2008-01-01 10:02:22
+2008-01-01 10:02:32
+2008-01-01 10:02:42
+
+2008-01-01 10:02:52
+2008-01-01 10:02:57
+2008-01-01 10:03:02
+
+
+INSERT INTO `alerta` (`ID`, `DataHoraMedicao`, `TipoSensor`, `ValorMedicao`, `Limite`, `Descricao`, `Controlo`, `Extra`) VALUES 
+(NULL, '2020-06-01 09:51:50', 'hum', 255, 300, 'Luminosidade a 255, o limite é 300', '0', 'Alerta Avisador de Perigo de Luminosidade'),
+(NULL, '2020-06-01 09:52:00', 'lum', 263, 300, 'Luminosidade a 263, o limite é 300', '0', 'Alerta Avisador de Perigo de Luminosidade'),
+(NULL, '2020-06-01 09:52:10', 'lum', 270, 300, 'Luminosidade a 270, o limite é 300', '0', 'Alerta Avisador de Perigo de Luminosidade'),
+
+(NULL, '2020-06-01 09:52:20', 'lum', 285, 300, 'Luminosidade a 285, o limite é 300', '0', 'Alerta Avisador de Perigo de Luminosidade'),
+(NULL, '2020-06-01 09:52:25', 'lum', 290, 300, 'Luminosidade a 290, limite 300', '0', 'Alerta Avisador de Perigo de Luminosidade'),
+(NULL, '2020-06-01 09:52:30', 'lum', 285, 300, 'Luminosidade a 285, limite 300', '0', 'Alerta Avisador de Perigo de Luminosidade'),
+(NULL, '2020-06-01 09:22:20', 'lum', 60, 300, 'Luminosidade a 60, limite 300', '0', 'Alerta Avisador de Perigo de Luminosidade'),
+(NULL, '2020-06-01 09:22:30', 'lum', 60, 300, 'lumidade a 60, limite 300', '0', 'Alerta Avisador de Perigo de Luminosidade')
+
+(NULL, '2020-06-01 21:00:31', 'mov', '1', NULL, 'Movimento detectado às 21:00:31', '0', 'Alerta Avisador de Perigo de Movimento')
+
+(NULL, '2020-06-01 10:02:22', 'mov', '32', '40', 'Temperatura a 32º, o limite é 40º', '0', 'Alerta Avisador de Perigo de Temperatura')
+
+
+
+(NULL, '2020-06-01 10:02:32', 'tmp', '32', '40', 'Temperatura a 32º, o limite é 40º', '0', 'Alerta Avisador de Perigo de Temperatura'),
+( NULL,'2020-06-01 10:02:42', 'tmp', '32', '40', 'Temperatura a 32º, o limite é 40º', '0', 'Alerta Avisador de Perigo de Temperatura'),
+( NULL,'2020-06-01 10:02:52', 'tmp', '38', '40', 'Temperatura a 38º, o limite é 40º', '0', 'Alerta Avisador de Perigo de Temperatura'),
+( NULL,'2020-06-01 10:02:57', 'tmp', '38', '40', 'Temperatura a 38º, o limite é 40º', '0', 'Alerta Avisador de Perigo de Temperatura'),
+(NULL, '2020-06-01 10:03:02', 'tmp', '38', '40', 'Temperatura a 38º, o limite é 40º', '0', 'Alerta Avisador de Perigo de Temperatura')
