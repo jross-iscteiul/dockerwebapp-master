@@ -34,7 +34,7 @@ pipeline{
 			steps{
 			
 			script {
-			sh 'sudo /home/ec2-user/google-cloud-sdk/bin/ gcloud container clusters describe ci-cd-cluster --zone=europe-west1-b' 
+			sh 'sudo /home/ec2-user/google-cloud-sdk/bin/gcloud container clusters describe ci-cd-cluster --zone=europe-west1-b' 
 			sh 'sudo kubectl config view'
 		sh 'strace kubectl version '
 		
