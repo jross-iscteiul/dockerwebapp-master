@@ -32,7 +32,6 @@ pipeline{
 		
 		stage('Deploy to Kube'){
 			steps{
-			sh "kubectl proxy --port=9090"
 			sh "kubectl config get-contexts"
 			sh "kubectl create deployment --image=sksuricata/dockerwebapp:latest v0"
 			sh "kubectl set env deployment.apss/v0 DOMAIN=cluster"
