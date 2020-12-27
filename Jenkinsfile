@@ -34,12 +34,12 @@ pipeline{
 			steps{
 			
 			script {
-			sh 'echo noanananana-info'
+			sh 'sudo echo noanananana-info'
 
-			sh "kubectl config view"
+			sh "sudo kubectl config view"
 
-			sh "kubectl config --kubeconfig=/home/ec2-user/jenkins/config use-context dev-frontend"
-			sh "kubectl config view"
+			sh "sudo kubectl config --kubeconfig=/home/ec2-user/jenkins/config use-context dev-frontend"
+			sh "sudo kubectl config view"
 			sh "kubectl create deployment --image=sksuricata/dockerwebapp:latest v0"
 			sh "kubectl set env deployment.apss/v0 DOMAIN=cluster"
 			sh "kubectl get pods"
