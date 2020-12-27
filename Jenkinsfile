@@ -13,7 +13,7 @@ pipeline{
 		steps{
 			sh 'docker build -t sksuricata/dockerwebapp:v0 .'
 			sh 'docker tag v0 sksuricata/dockerwebapp:v0'
-			sh 'docker push sksuricata/dockerwebapp:v0'
+			sh 'docker push v0'
 			
 			}
 			
