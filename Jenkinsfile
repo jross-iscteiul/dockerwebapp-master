@@ -34,10 +34,9 @@ pipeline{
 			steps{
 			
 			script {
-			sh 'sudo /home/ec2-user/google-cloud-sdk/bin/gcloud config set account jenkins'
+			sh 'sudo /home/ec2-user/google-cloud-sdk/bin/gcloud config set account jenkins@agisit0.iam.gserviceaccount.com	'
 			sh 'sudo /home/ec2-user/google-cloud-sdk/bin/gcloud container clusters describe ci-cd-cluster --zone=europe-west1-b' 
 			sh 'sudo kubectl config view'
-		sh 'strace kubectl version '
 		
 			sh 'kubectl create deployment --image=sksuricata/dockerwebapp:latest v0'
 			sh 'kubectl set env deployment.apss/v0 DOMAIN=cluster'
