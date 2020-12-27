@@ -35,11 +35,11 @@ pipeline{
 			
 			script {
 		
-			sh "sudo kubectl config view"
-
+			sh 'sudo kubectl config view'
+		sh 'strace kubectl version '
 		
-			sh "kubectl create deployment --image=sksuricata/dockerwebapp:latest v0"
-			sh "kubectl set env deployment.apss/v0 DOMAIN=cluster"
+			sh 'kubectl create deployment --image=sksuricata/dockerwebapp:latest v0'
+			sh 'kubectl set env deployment.apss/v0 DOMAIN=cluster'
 			sh "kubectl get pods"
 				
 			}}
