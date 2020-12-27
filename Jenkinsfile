@@ -35,6 +35,7 @@ pipeline{
 			
 			script {
 			sh 'sudo /home/ec2-user/google-cloud-sdk/bin/gcloud config set account jenkins@agisit0.iam.gserviceaccount.com	'
+			sh 'sudo /home/ec2-user/google-cloud-sdk/bin/gcloudauth activate-service-account jenkins@agisit0.iam.gserviceaccount.com --key-file=jenkins_key.json'
 			sh 'sudo /home/ec2-user/google-cloud-sdk/bin/gcloud container clusters describe ci-cd-cluster --zone=europe-west1-b' 
 			sh 'sudo kubectl config view'
 		
