@@ -7,20 +7,22 @@ pipeline{
 		stage('checkout') {
 			node {
 				checkout scm
+				echo 'checkout'
 				 }
 	}
 		stage('Build image'){
 			docker.withRegistry('https://registry.hub.docker.com', 'dockerHub') {
-
+			echo 'docker'
 			def customImage = docker.build("sksuricata/dockerwebapp:v0")
 			/*sh 'docker build -t sksuricata/main .'*/
 			customImage.push()
-			
+			echo 'pushed'
         /* Push the container to the custom Registry */
 			
 		}}
 		
 		stage('Deploy to Docker'){
+			
 			sh 'docker run -p 91:8080 sksuricata/dockerwebapp:v0'
 			
 		}
