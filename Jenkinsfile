@@ -26,7 +26,7 @@ pipeline{
 		}}
 		stage('Deploy to Docker'){
 			steps{
-			sh 'kubectl cluster-info'
+			sh 'echo cluster-info'
 			}
 		}
 		
