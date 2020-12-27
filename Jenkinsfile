@@ -34,7 +34,7 @@ pipeline{
 			steps{
 			
 			script {
-			sh 'gcloud container clusters get-credentials ci-cd-cluster --zone=europe-west1-b' 
+			sh '/home/ec2-user/google-cloud-sdk/bin/gcloud container clusters get-credentials ci-cd-cluster --zone=europe-west1-b' 
 			sh 'sudo kubectl config view'
 		sh 'strace kubectl version '
 		
