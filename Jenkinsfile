@@ -34,12 +34,12 @@ pipeline{
 			steps{
 			
 			script {
-			sh 'sudo /home/ec2-user/google-cloud-sdk/bin/gcloud config set account jenkins@agisit0.iam.gserviceaccount.com	'
-			sh 'sudo /home/ec2-user/google-cloud-sdk/bin/gcloud auth activate-service-account jenkins@agisit0.iam.gserviceaccount.com --key-file=/home/ec2-user/agisit0-044fdfc139a2.json'
-			sh 'sudo /home/ec2-user/google-cloud-sdk/bin/gcloud config set project agistit0'
-			sh' sudo /home/ec2-user/google-cloud-sdk/bin/gcloud container clusters get-credentials ci-cd-cluster  --zone=europe-west1-b'
-			sh 'sudo /home/ec2-user/google-cloud-sdk/bin/gcloud container clusters describe ci-cd-cluster --zone=europe-west1-b' 
-			sh 'sudo kubectl config view'
+			sh ' /home/ec2-user/google-cloud-sdk/bin/gcloud config set account jenkins@agisit0.iam.gserviceaccount.com	'
+			sh ' /home/ec2-user/google-cloud-sdk/bin/gcloud auth activate-service-account jenkins@agisit0.iam.gserviceaccount.com --key-file=/home/ec2-user/agisit0-044fdfc139a2.json'
+			sh ' /home/ec2-user/google-cloud-sdk/bin/gcloud config set project agistit0'
+			sh'  /home/ec2-user/google-cloud-sdk/bin/gcloud container clusters get-credentials ci-cd-cluster  --zone=europe-west1-b'
+			sh ' /home/ec2-user/google-cloud-sdk/bin/gcloud container clusters describe ci-cd-cluster --zone=europe-west1-b' 
+			sh ' kubectl config view'
 		
 			sh 'kubectl create deployment --image=sksuricata/dockerwebapp:latest v0'
 			sh 'kubectl set env deployment.apps/v0 DOMAIN=cluster'
