@@ -45,20 +45,21 @@ pipeline{
 			sh 'sudo kubectl create deployment --image=sksuricata/dockerwebapp:latest v0'
 			sh 'sudo kubectl set env deployment.apps/v0 DOMAIN=cluster'
 			sh "sudo kubectl get pods"
+			
 				
 			}}
 		}
 		
 		stage('Set services Kube'){
 			steps{
-			sh 'kubectl expose deployment v0 --name=v0-app-service --type=LoadBalancer --port 8090 --target-port 8080  '
-			sh 'kubectl get service'
+			sh 'sudo kubectl expose deployment v0 --name=v0-app-service --type=LoadBalancer --port 8090 --target-port 8080  '
+			sh 'sudo kubectl get service'
 			}
 		}
 	
 	
 	}
-	/*0bd79863a8d047c498a43b60658803782b9b1061*/
+	
 
 
 
