@@ -33,7 +33,7 @@ pipeline{
 		stage('Deploy to Kube'){
 			steps{
 			
-			
+			script {
 			sh 'echo noanananana-info'
 
 			sh "kubectl config view"
@@ -44,7 +44,7 @@ pipeline{
 			sh "kubectl set env deployment.apss/v0 DOMAIN=cluster"
 			sh "kubectl get pods"
 				
-			}
+			}}
 		}
 		
 		stage('Set services Kube'){
