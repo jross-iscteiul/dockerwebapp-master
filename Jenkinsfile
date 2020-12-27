@@ -32,6 +32,12 @@ pipeline{
 		
 		stage('Deploy to Kube'){
 			steps{
+			step([$class: 'KubernetesEngineBuilder', 
+                        projectId: "agisit0",
+                        clusterName: "ci-cd-cluster",
+                        zone: "europe-west1-b",
+                        credentialsId: "GKE",
+                        verifyDeployments: true])
 			sh "kubectl config --kubeconfig=/home/ec2-user/jenkins/config use-context dev-frontend"
 			sh "kubectl config view"
 			sh "kubectl create deployment --image=sksuricata/dockerwebapp:latest v0"
