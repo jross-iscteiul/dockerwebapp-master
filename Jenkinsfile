@@ -39,10 +39,9 @@ pipeline{
 			sh 'sudo which kubectl'
 			sh 'sudo cat /home/ec2-user/jenkins/config'
 			sh "sudo kubectl config view"
-			sh "sudo kubectl config set-context jenkins" 
+			sh "sudo kubectl config set-context jenkins && sudo kubectl config --kubeconfig=/home/ec2-user/jenkins/config use-context jenkins && sudo kubectl config view" 
 
-			sh "sudo kubectl config --kubeconfig=/home/ec2-user/jenkins/config use-context jenkins"
-			sh "sudo kubectl config view"
+		
 			sh "kubectl create deployment --image=sksuricata/dockerwebapp:latest v0"
 			sh "kubectl set env deployment.apss/v0 DOMAIN=cluster"
 			sh "kubectl get pods"
