@@ -7,8 +7,7 @@ pipeline{
 		stage('checkout') {
 			steps{
 				checkout scm
-				echo 'checkout'
-				sh 'sudo service docker start'
+				sh 'service docker start'
 		}
 	}
 		stage('Build image'){
