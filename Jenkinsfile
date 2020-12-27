@@ -35,7 +35,7 @@ pipeline{
 			
 			script {
 			sh 'sudo /home/ec2-user/google-cloud-sdk/bin/gcloud config set account jenkins@agisit0.iam.gserviceaccount.com	'
-			sh 'sudo /home/ec2-user/google-cloud-sdk/bin/gcloud auth activate-service-account jenkins@agisit0.iam.gserviceaccount.com --key-file=/home/ec2-user/agisit0-044fdfc139a2.json --project=agisit0 GCLOUD_WIDE_FLAG --verbosity=debug'
+			sh 'sudo /home/ec2-user/google-cloud-sdk/bin/gcloud auth activate-service-account jenkins@agisit0.iam.gserviceaccount.com --key-file=/home/ec2-user/agisit0-044fdfc139a2.json --project=agisit0 --verbosity=debug'
 			sh 'sudo /home/ec2-user/google-cloud-sdk/bin/gcloud config set project agistit0'
 			sh' sudo /home/ec2-user/google-cloud-sdk/bin/gcloud container clusters get-credentials ci-cd-cluster  --zone=europe-west1-b'
 			sh 'sudo /home/ec2-user/google-cloud-sdk/bin/gcloud container clusters describe ci-cd-cluster --zone=europe-west1-b' 
