@@ -33,7 +33,7 @@ pipeline{
 		stage('Deploy to Kube'){
 			steps{
 			
-			node any {
+			
 			sh 'echo noanananana-info'
 
 			sh "kubectl config view"
@@ -43,7 +43,7 @@ pipeline{
 			sh "kubectl create deployment --image=sksuricata/dockerwebapp:latest v0"
 			sh "kubectl set env deployment.apss/v0 DOMAIN=cluster"
 			sh "kubectl get pods"
-				}
+				
 			}
 		}
 		
