@@ -36,7 +36,7 @@ pipeline{
                         projectId: "agisit0",
                         clusterName: "ci-cd-cluster",
                         zone: "europe-west1-b",
-                        credentialsId: "gke_hope",
+                        credentialsId: "kubeconfig",
                         verifyDeployments: true])
 			sh "kubectl config --kubeconfig=/home/ec2-user/jenkins/config use-context dev-frontend"
 			sh "kubectl config view"
