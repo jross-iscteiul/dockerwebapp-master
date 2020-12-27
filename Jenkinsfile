@@ -26,15 +26,16 @@ pipeline{
 		}}
 		stage('Deploy to Docker'){
 			steps{
-			sh 'echo ola'
+			sh 'kubectl cluster-info'
 			}
 		}
 		
 		stage('Deploy to Kube'){
 			steps{
-			sh "cd / && kubectl config get-contexts"
-			sh "cd / && kubectl create deployment --image=sksuricata/dockerwebapp:latest v0"
-			sh "cd / && kubectl set env deployment.apss/v0 DOMAIN=cluster"
+			sh "kubectl proxy --port=9090"
+			sh "kubectl config get-contexts"
+			sh "kubectl create deployment --image=sksuricata/dockerwebapp:latest v0"
+			sh "kubectl set env deployment.apss/v0 DOMAIN=cluster"
 			sh "kubectl get pods"
 			
 			}
