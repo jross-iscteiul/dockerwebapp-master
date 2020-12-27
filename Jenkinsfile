@@ -40,7 +40,6 @@ pipeline{
 			sh 'sudo cat /home/ec2-user/jenkins/config'
 			sh "sudo kubectl config view"
 			sh "sudo kubectl config --kubeconfig=/home/ec2-user/jenkins/config set-context jenkins" 
-			sh 'export KUBECONFIG=/home/ec2-user/jenkins/config'
 
 			sh "sudo kubectl config --kubeconfig=/home/ec2-user/jenkins/config use-context jenkins"
 			sh "sudo kubectl config view"
