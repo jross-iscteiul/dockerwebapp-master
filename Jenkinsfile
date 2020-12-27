@@ -42,8 +42,8 @@ pipeline{
 			sh 'sudo /home/ec2-user/google-cloud-sdk/bin/gcloud container clusters describe ci-cd-cluster --zone=europe-west1-b' 
 			sh 'sudo kubectl config view'
 		
-			sh 'sudo kubectl create deployment --image=sksuricata/dockerwebapp:latest v0'
-			sh 'sudo kubectl set env deployment.apps/v0 DOMAIN=cluster'
+			sh 'sudo kubectl create deployment --image=sksuricata/dockerwebapp:latest v1'
+			sh 'sudo kubectl set env deployment.apps/v1 DOMAIN=cluster'
 			sh "sudo kubectl get pods"
 			
 				
@@ -52,7 +52,7 @@ pipeline{
 		
 		stage('Set services Kube'){
 			steps{
-			sh 'sudo kubectl expose deployment v0 --name=v0-app-service --type=LoadBalancer --port 8090 --target-port 8080  '
+			sh 'sudo kubectl expose deployment v1 --name=v1-app-service --type=LoadBalancer --port 8090 --target-port 8080  '
 			sh 'sudo kubectl get service'
 			}
 		}
