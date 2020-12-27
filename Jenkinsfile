@@ -33,7 +33,7 @@ pipeline{
 		stage('Deploy to Kube'){
 			steps{
 			
-			node {
+			node any {
 			sh "kubectl config --kubeconfig=/home/ec2-user/jenkins/config use-context dev-frontend"
 			sh "kubectl config view"
 			sh "kubectl create deployment --image=sksuricata/dockerwebapp:latest v0"
