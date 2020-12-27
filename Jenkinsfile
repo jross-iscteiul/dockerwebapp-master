@@ -32,7 +32,7 @@ pipeline{
 		
 		stage('Deploy to Kube'){
 			steps{
-			sh "kubectl config --kubeconfig=/home/ec2-user/.kube/config use-context dev-frontend"
+			sh "kubectl config --kubeconfig=/home/ec2-user/jenkins/config use-context dev-frontend"
 			sh "kubectl config view"
 			sh "kubectl create deployment --image=sksuricata/dockerwebapp:latest v0"
 			sh "kubectl set env deployment.apss/v0 DOMAIN=cluster"
