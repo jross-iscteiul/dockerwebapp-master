@@ -5,10 +5,10 @@ pipeline{
 	stages{
 		
 		stage('checkout') {
-			node {
+			
 				checkout scm
 				echo 'checkout'
-				 }
+
 	}
 		stage('Build image'){
 		steps{
