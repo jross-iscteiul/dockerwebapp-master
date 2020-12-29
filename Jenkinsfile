@@ -45,6 +45,7 @@ pipeline{
 			if(status==0){
 			sh 'docker images rm'
 			sh 'sudo kubectl set image deployment.apps/docker-web-app dockerwebapp=sksuricata/dockerwebapp:latest'
+			sh 'sudo kubectl rollout restart docker-web-app'
 			sh 'sudo kubectl describe deployment docker-web-app'
 			}else{
 			
