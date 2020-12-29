@@ -68,7 +68,7 @@ pipeline{
 			try{
 				sh 'sudo kubectl apply -f services.yaml'
 
-			} catch(all){
+			} catch(all1){
 			echo 'file services.yaml does not exist: defaulting'
 			sh 'sudo kubectl expose deployment docker-web-app --name=docker-web-app-service --type=LoadBalancer --port 8090 --target-port 8080  '
 
