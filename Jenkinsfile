@@ -42,7 +42,7 @@ pipeline{
 			sh 'sudo /home/ec2-user/google-cloud-sdk/bin/gcloud container clusters describe ci-cd-cluster --zone=europe-west1-b' 
 			sh 'sudo kubectl config view'
 		
-			sh 'sudo kubectl create deployment --image=sksuricata/dockerwebapp:latest docker-web-app --image-pull-policy=always'
+			sh 'sudo kubectl create deployment --image=sksuricata/dockerwebapp:latest docker-web-app '
 			sh 'sudo kubectl set env deployment.apps/docker-web-app DOMAIN=cluster'
 			sh "sudo kubectl get pods"
 			
