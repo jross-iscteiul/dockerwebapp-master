@@ -52,7 +52,7 @@ pipeline{
 		
 		stage('Set services Kube'){
 			steps{
-			sh 'sudo kubectl expose deployment v1 --name=v1-app-service --type=LoadBalancer --port 8090 --target-port 8080  '
+			sh 'sudo kubectl expose deployment v1 --name=docker-web-app-service --type=LoadBalancer --port 8090 --target-port 8080  '
 			sh 'sudo kubectl get service'
 			}
 		}
