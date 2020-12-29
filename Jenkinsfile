@@ -57,9 +57,13 @@ pipeline{
 		stage('Set services Kube'){
 			steps{
 			script {
+			int status = sh(script: """ sudo kubectl get services docker-web-app-service """ , returnStatus: true)
+
 			if(status!=0){
 			sh 'sudo kubectl expose deployment docker-web-app --name=docker-web-app-service --type=LoadBalancer --port 8090 --target-port 8080  '
+			sh 'echo "-------created service---"
 			}
+			sh 'echo "-------service exists---"
 			sh 'sudo kubectl get service'
 			}
 		}
