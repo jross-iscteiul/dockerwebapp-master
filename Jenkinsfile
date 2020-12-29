@@ -43,9 +43,11 @@ pipeline{
 			sh 'sudo kubectl config view'
 			int status = sh(script: """ sudo kubectl get deployment docker-web-app """ , returnStatus: true)
 			if(status==0){
+			sh 'docker images rm'
 			sh 'sudo kubectl set image deployment docker-web-app dockerwebapp=sksuricata/dockerwebapp:latest'
 			sh 'sudo kubectl describe deployment docker-web-app'
 			}else{
+			
 			sh 'sudo kubectl create deployment --image=sksuricata/dockerwebapp:latest docker-web-app '
 			sh 'sudo kubectl set env deployment.apps/docker-web-app DOMAIN=cluster'
 			sh "sudo kubectl get pods"
@@ -63,6 +65,7 @@ pipeline{
 			sh 'sudo kubectl expose deployment docker-web-app --name=docker-web-app-service --type=LoadBalancer --port 8090 --target-port 8080  '
 			sh 'echo "-------created service---"'
 			}
+			
 			sh 'echo "-------service exists---"'
 			sh 'sudo kubectl get service'
 			}
