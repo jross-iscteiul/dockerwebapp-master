@@ -61,7 +61,7 @@ pipeline{
 			steps{
 			script {
 			try{
-			int status = sh(script: """ sudo kubectl get services docker-web-app-service """ , returnStatus: true)
+			sh 'sudo kubectl get services docker-web-app-service'
 			
 			}catch(all){
 			echo 'service does not exist'
