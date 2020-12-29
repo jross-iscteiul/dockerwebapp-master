@@ -60,19 +60,25 @@ pipeline{
 		stage('Set services Kube'){
 			steps{
 			script {
+			try{
 			int status = sh(script: """ sudo kubectl get services docker-web-app-service """ , returnStatus: true)
+			}
+			cath(Exception e)
+			{
+			echo 'service does not exist'
+			try{
+				sh 'sudo kubectl apply -f services.yaml'
 
-			if(status!=0){
-			sh 'sudo kubectl apply -f services.yaml'
-			int status1 = sh(script: """ sudo kubectl get services docker-web-app-service """ , returnStatus: true)
-			if(status1!=0){
+			}
+			catch(Exception e1){
+			echo 'file services.yaml does not exist: defaulting'
 			sh 'sudo kubectl expose deployment docker-web-app --name=docker-web-app-service --type=LoadBalancer --port 8090 --target-port 8080  '
+
 			}
-			sh 'echo "-------created service---"'
 			}
+						sh 'sudo kubectl get service'
+
 			
-			sh 'echo "-------service exists---"'
-			sh 'sudo kubectl get service'
 			}
 			}
 		}
