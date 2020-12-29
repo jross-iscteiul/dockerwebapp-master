@@ -44,7 +44,7 @@ pipeline{
 			int status = sh(script: """ sudo kubectl get deployment docker-web-app """ , returnStatus: true)
 			if(status==0){
 			sh 'docker images rm'
-			sh 'sudo kubectl set image deployment docker-web-app dockerwebapp=sksuricata/dockerwebapp:latest'
+			sh 'sudo kubectl set image deployment docker-web-app app=sksuricata/dockerwebapp:latest'
 			sh 'sudo kubectl describe deployment docker-web-app'
 			}else{
 			
