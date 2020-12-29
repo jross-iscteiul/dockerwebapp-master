@@ -1,6 +1,10 @@
 apiVersion: v1
 kind: Service
-
+metadata:
+  labels:
+    app: docker-web-app
+  name: docker-web-app-service
+  
 spec:
   clusterIP: 10.75.242.247
   externalTrafficPolicy: Cluster
