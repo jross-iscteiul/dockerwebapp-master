@@ -41,11 +41,14 @@ pipeline{
 			sh' sudo /home/ec2-user/google-cloud-sdk/bin/gcloud container clusters get-credentials ci-cd-cluster  --zone=europe-west1-b'
 			sh 'sudo /home/ec2-user/google-cloud-sdk/bin/gcloud container clusters describe ci-cd-cluster --zone=europe-west1-b' 
 			sh 'sudo kubectl config view'
-		
+			if(sh'sudo kubectl get deployment docker-web-app' ==0){
+			sh 'sudo kubectl set image deployment docker-web-app dockerwebapp=sksuricata/dockerwebapp:latest'
+			sh 'sudo kubectl describe deployment docker-web-app'
+			}else{
 			sh 'sudo kubectl create deployment --image=sksuricata/dockerwebapp:latest docker-web-app '
 			sh 'sudo kubectl set env deployment.apps/docker-web-app DOMAIN=cluster'
 			sh "sudo kubectl get pods"
-			
+			}
 				
 			}}
 		}
