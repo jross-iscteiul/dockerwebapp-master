@@ -1,16 +1,7 @@
-FROM node:8
+FROM jenkins/jenkins:lts
 
-# Create app directory
+WORKDIR /usr/src/jenkins
 
-WORKDIR /usr/src/app
+RUN touch /usr/src/jenkins/gcloud_key.json
 
-
-COPY package*.json ./
-
-RUN npm install
-
-# Bundle app source
-COPY . .
-
-EXPOSE 8080
-CMD [ "npm", "start" ]
+RUN sudo services jenkins start
